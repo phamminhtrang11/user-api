@@ -42,7 +42,6 @@ public class UserServiceImp implements UserService{
         for (User user : users) {
             if (user.getId() == id) {
                 user.setName(updatedUser.getName());
-                user.setName(updatedUser.getName());
                 return user;
             }
         }
