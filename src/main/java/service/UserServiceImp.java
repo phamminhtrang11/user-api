@@ -15,6 +15,7 @@ public class UserServiceImp implements UserService{
     private static ArrayList<User> users = new ArrayList<User>();
     static {
         users.add(new User(1, "a", "abc"));
+        users.add(new User(2, "b", "cde"));
     }
 
 
@@ -35,5 +36,32 @@ public class UserServiceImp implements UserService{
             }
         }
         throw new NotFoundException("user not exist");
+    }
+    @Override
+    public User updateUser(int id, User updatedUser) {
+        for (User user : users) {
+            if (user.getId() == id) {
+                user.setName(updatedUser.getName());
+                user.setName(updatedUser.getName());
+                return user;
+            }
+        }
+        throw new NotFoundException("User does not exist");
+    }
+
+    @Override
+    public Userdto deleteUser(int id) {
+        for (User user : users) {
+            if (user.getId() == id) {
+                users.remove(user);
+                return UserMapper.toUserdto(user);
+            }
+        }
+        throw new NotFoundException("User does not exist");
+    }
+    @Override
+    public User createUser(User user) {
+        users.add(user);
+        return user;
     }
 }

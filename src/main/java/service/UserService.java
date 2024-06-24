@@ -11,4 +11,9 @@ public interface UserService {
     public List<Userdto> getListUser();
     public Userdto getUserById(int id);
 
+    User updateUser(int id, User updatedUser);
+
+    Userdto deleteUser(int id);
+
+    User createUser(User user);
 }
